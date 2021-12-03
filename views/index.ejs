@@ -12,9 +12,9 @@
     <body>
         <div class = "container">
             <form action="/result" method="post">
-                <h3>Your Name:<input class="fields" type="text" name="name"></h3>
+                <h3>Your Name:<input class="fields" type="text" name="name" id="name"></h3>
                 <h3> Dojo Location:
-                    <select class="selector" name="location">
+                    <select class="selector" name="location" id="location">
                         <option value="Berkley">Berkley</option>
                         <option value="Chicago">Chicago</option>
                         <option value="Dallas">Dallas</option>
@@ -25,7 +25,7 @@
                     </select>
                 </h3>
                 <h3>Favorite Language:
-                    <select class="selector" name="language">
+                    <select class="selector" name="language" id="language">
                         <option value="java">Java</option>
                         <option value="node">Node</option>
                         <option value="c++">C++</option>
@@ -35,14 +35,14 @@
                     </select>
                 </h3>
                 <h3>Comment (optional):</h3>
-                <h3><textarea class="rec"  name="comment" cols="78" rows="10"></textarea></h3>
+                <h3><textarea class="rec"  name="comment" cols="78" rows="10" id="comment"></textarea></h3>
                 <h3><input class ="btnSubmit" type="submit" value="Submit"></h3>
             </form>
         </div>
         <script type="text/javascript">
             $(document).ready(function(){
                 var socket = io();
-                $("#btn").click(function(){
+                $("#btnSubmit").click(function(){
                     console.log("clicked button");
                     socket.emit("posting_form", {
                         name:$("#name").val(),
